@@ -2,6 +2,7 @@ package com.trupt.rentACar.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
+import jakarta.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -40,4 +41,8 @@ public class BasePersonEntity extends BaseEntity{
 
   @Column(name = "full_address", columnDefinition = "TEXT")
   private String fullAddress;
+
+  @Column(name = "password", columnDefinition = "VARCHAR(255)", nullable = false)
+  @Size(min = 8, max = 16, message = "Password must be between 8 and 60 characters long")
+  private String password;
 }
